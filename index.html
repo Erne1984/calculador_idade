@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Poppins">
+
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="container-main">
+
+    <div class="box">
+
+      <div class="container-dates">
+
+        <div class="data">
+          <label for="day">Dia</label>
+          <input type="text" id="day" placeholder="DD">
+          <small id="aviso"></small>
+        </div>
+
+        <div class="data">
+          <label for="month">Mês</label>
+          <input type="text" id="month" placeholder="MM">
+          <small id="aviso"></small>
+        </div>
+
+        <div class="data">
+          <label for="year">Ano</label>
+          <input type="text" id="year" placeholder="YYYY">
+          <small id="aviso"></small>
+        </div>
+
+      </div>
+
+      <div class="btn-box">
+        <button class="btn"><img src="assets/images/icon-arrow.svg" alt=""></button>
+      </div>
+
+      <div class="container-exhibition">
+        <div class="campo"><span class="dados" id="age-years">--</span> anos</div>
+        <div class="campo"><span class="dados" id="age-months">--</span> meses</div>
+        <div class="campo"><span class="dados" id="age-days">--</span> dias</div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Ernesto Floriano Amorim</a>.
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

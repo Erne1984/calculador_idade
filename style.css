@@ -1,0 +1,104 @@
+@font-face {
+    font-family: "poppins";
+    src: url(assets/fonts/Poppins-Regular.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+}
+
+.container-main{
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-dates{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+}
+
+.data label{
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.3rem;
+    margin-bottom: 3px;
+    font-weight: 700;
+    color: hsl(0, 1%, 44%);
+}
+
+.data input{
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 9px;
+    width: 150px;
+    font-size: 32px;
+    border: solid 1px hsl(0, 0%, 86%);
+}
+
+.data input:focus{
+    border: solid 2px hsl(259, 100%, 65%);
+    outline: none;
+}
+
+.aviso{
+    color: hsl(0, 100%, 67%);
+}
+
+.btn-box{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-box .btn{
+    padding: 15px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: hsl(259, 100%, 65%);
+}
+
+.btn-box .btn:focus{
+    border: 1px solid hsl(0, 0%, 86%);
+}
+
+.btn-box .btn:hover{
+    cursor: pointer;
+}
+
+.container-exhibition{
+    padding: 10px;
+}
+
+.campo{
+    text-transform: capitalize;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.dados{
+    color: hsl(259, 100%, 65%);
+    letter-spacing: 2rem;
+    align-self: center;
+}
+
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
