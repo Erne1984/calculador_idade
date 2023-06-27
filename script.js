@@ -1,57 +1,75 @@
-const btn = document.querySelector('.btn')
+const btn = document.querySelector('.btn');
 
-const diaCampo = document.querySelector("#age-days")
-const mesCampo = document.querySelector("#age-months")
-const anoCampo = document.querySelector("#age-years")
+const diaCampo = document.querySelector("#age-days");
+const mesCampo = document.querySelector("#age-months");
+const anoCampo = document.querySelector("#age-years");
 
-function VerificarValidade(dia, mes, ano) {
-    let aviso = document.querySelector("#aviso")
-    let campoValidado = false;
-
-    while(campoValidado != true){
-        if(dia < 1 || dia > 31){
-            aviso.textContent("Deve ser um dia válido")
-        }
-        if(mes < 1 || mes > 12){
-            aviso.textContent("Deve ser um mês válido")
-        }
-        if(ano > 2023){
-            aviso.textContent("Deve ser um ano que aconteceu!")
-        }
-        
-    }
+function validarData(dia, mes, ano) {
+  const data = new Date(ano, mes - 1, dia);
+  return (
+    dia > 0 &&
+    dia <= 31 &&
+    mes > 0 &&
+    mes <= 12 &&
+    ano.length === 4 &&
+    !isNaN(data.getTime())
+  );
 }
 
-function calcuclarIdade() {
+function calcularIdade() {
   const dia = document.querySelector('#day').value;
   const mes = document.querySelector('#month').value;
   const ano = document.querySelector('#year').value;
 
-  let anoNascimento = {
-    dia: dia,
-    mes: mes,
-    ano: ano
-  };
+
+  if (!dia || !mes || !ano) {
+    mostrarMensagemErro('Preencha todos os campos');
+    return;
+  }
+
+ 
+  if (!validarData(dia, mes, ano)) {
+    mostrarMensagemErro('Data inválida');
+    return;
+  }
 
   const dataAtual = new Date();
-  let idadeAnos = dataAtual.getFullYear() - parseInt(anoNascimento.ano);
-  let idadeMeses = dataAtual.getMonth() - parseInt(anoNascimento.mes);
-  let idadeDias = dataAtual.getDate() - parseInt(anoNascimento.dia);
+  const dataNascimento = new Date(ano, mes - 1, dia);
 
-  if (idadeMeses < 0 || (idadeMeses === 0 && idadeDias < 0)) {
+  let idadeAnos = dataAtual.getFullYear() - dataNascimento.getFullYear();
+  let idadeMeses = dataAtual.getMonth() - dataNascimento.getMonth();
+  let idadeDias = dataAtual.getDate() - dataNascimento.getDate();
+
+  if (idadeDias < 0) {
+    idadeMeses--;
+    const ultimoDiaMesAnterior = new Date(
+      dataAtual.getFullYear(),
+      dataAtual.getMonth(),
+      0
+    ).getDate();
+    idadeDias += ultimoDiaMesAnterior;
+  }
+
+  if (idadeMeses < 0) {
     idadeAnos--;
     idadeMeses += 12;
   }
 
-  if (idadeDias < 0) {
-    const ultimoDiaMesAnterior = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 0).getDate();
-    idadeDias += ultimoDiaMesAnterior;
-    idadeMeses--;
-  }
 
   anoCampo.textContent = idadeAnos;
   mesCampo.textContent = idadeMeses;
   diaCampo.textContent = idadeDias;
 }
 
-btn.addEventListener('click', calcuclarIdade)
+function mostrarMensagemErro(mensagem) {
+  const avisoDia = document.querySelector('#aviso-dia');
+  const avisoMes = document.querySelector('#aviso-mes');
+  const avisoAno = document.querySelector('#aviso-ano');
+
+
+  avisoDia.textContent = mensagem;
+  avisoMes.textContent = mensagem;
+  avisoAno.textContent = mensagem;
+}
+
+btn.addEventListener('click', calcularIdade);
