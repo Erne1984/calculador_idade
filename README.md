@@ -33,4 +33,4 @@ This is a solution to the [Age calculator app challenge on Frontend Mentor](http
 
 ## Author
 
-- Frontend Mentor - [@ilkerkarahan]([https://www.frontendmentor.io/profile/Erne1984)
+- Frontend Mentor - [@Erne1984]([https://www.frontendmentor.io/profile/Erne1984)
